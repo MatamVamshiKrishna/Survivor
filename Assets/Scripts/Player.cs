@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
 
     private Vector3 moveDirection = Vector3.zero;
     private bool canSprint = false;
+    private bool canJump = false;
     private float speed;
 
     // component references
@@ -27,13 +28,11 @@ public class Player : MonoBehaviour
     {
         speed = walkSpeed;
         canSprint = false;
+        canJump = false;
 
-        if(Input.GetKey(KeyCode.LeftShift))
-        {
-            speed = sprintSpeed;
-            canSprint = true;
-        }
+       
 
+        //Debug.Log(characterController.isGrounded);
 
         if(characterController.isGrounded)
         {
@@ -41,19 +40,29 @@ public class Player : MonoBehaviour
             moveDirection = transform.TransformDirection(moveDirection);
             moveDirection *= speed;
 
-            if(Input.GetKeyDown(KeyCode.Space))
+            if(Input.GetKey(KeyCode.Space))
             {
+                Debug.Log("Space key pressed");
                 moveDirection.y = jumpSpeed;
-             }
+                canJump = true;
+            }
         }
 
-        transform.Rotate(new Vector3(0, Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime, 0));
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = sprintSpeed;
+            canSprint = true;
+        }
+
+        transform.Rotate(new Vector3(0, Input.GetAxis("Horizontal") * 
+            rotationSpeed * Time.deltaTime, 0));
         moveDirection.y -= 9.8f * Time.deltaTime;
         characterController.Move(moveDirection * Time.deltaTime);
 
         var magnitude = new Vector2(characterController.velocity.x, characterController.velocity.z).magnitude;
         animator.SetFloat("speed", magnitude);
         animator.SetBool("canSprint", canSprint);
+        animator.SetBool("canJump", canJump);
         
     }
 }
