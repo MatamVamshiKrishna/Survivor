@@ -17,11 +17,16 @@ public class Player : MonoBehaviour
     // component references
     private CharacterController characterController;
     private Animator animator;
+    private HealthSystem healthSystem;
+    private HungerSystem hungerSystem;
 
     void Awake()
     {
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        healthSystem = GetComponent<HealthSystem>();
+        hungerSystem = GetComponent<HungerSystem>();
+        hungerSystem.SetHealthSystem(healthSystem);
     }
 
     void Update()
@@ -30,19 +35,14 @@ public class Player : MonoBehaviour
         canSprint = false;
         canJump = false;
 
-       
-
-        //Debug.Log(characterController.isGrounded);
-
         if(characterController.isGrounded)
         {
             moveDirection = new Vector3(0, 0, Input.GetAxis("Vertical"));
             moveDirection = transform.TransformDirection(moveDirection);
             moveDirection *= speed;
 
-            if(Input.GetKey(KeyCode.Space))
+            if(Input.GetMouseButtonDown(0))
             {
-                Debug.Log("Space key pressed");
                 moveDirection.y = jumpSpeed;
                 canJump = true;
             }
@@ -63,6 +63,28 @@ public class Player : MonoBehaviour
         animator.SetFloat("speed", magnitude);
         animator.SetBool("canSprint", canSprint);
         animator.SetBool("canJump", canJump);
-        
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if(hit.gameObject.CompareTag("Obstacle"))
+        {
+            var obstacle = hit.gameObject.GetComponent<Obstacle>();
+            if(obstacle)
+            {
+                healthSystem.DecreaseHealth(obstacle.health);
+            }
+        }
+
+        if(hit.gameObject.CompareTag("Food"))
+        {
+            var food = hit.gameObject.GetComponent<Food>();
+            if(food)
+            {
+                Destroy(hit.gameObject);
+                healthSystem.IncreaseHealth(food.health);
+                hungerSystem.DecreaseHungerLevel(food.hunger);
+            }
+        }
     }
 }
