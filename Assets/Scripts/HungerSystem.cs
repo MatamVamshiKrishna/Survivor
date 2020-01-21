@@ -10,16 +10,12 @@ public class HungerSystem : MonoBehaviour
     private void Start()
     {
         InvokeRepeating("UpdateHungerLevel", 5.0f, 5.0f);
+        healthSystem = GetComponent<HealthSystem>();
     }
 
     private void Update()
     {
         Debug.Log("HungerLevel " +hungerLevel);
-    }
-
-    public void SetHealthSystem(HealthSystem healthSystem)
-    {
-        this.healthSystem = healthSystem;
     }
 
     public int GetHungerLevel()

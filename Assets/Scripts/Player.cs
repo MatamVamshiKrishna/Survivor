@@ -26,7 +26,6 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
         healthSystem = GetComponent<HealthSystem>();
         hungerSystem = GetComponent<HungerSystem>();
-        hungerSystem.SetHealthSystem(healthSystem);
     }
 
     void Update()
