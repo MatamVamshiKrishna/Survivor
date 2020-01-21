@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -2949448122743416195}
   m_Layer: 0
   m_Name: Meat
-  m_TagString: Food
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,5 +105,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6380c48c50b752f4f980c143fde12c7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Name: Meat
+  Description: Its a meat
+  Weight: 0.75
+  Sprite: {fileID: 21300000, guid: 9a78fb6d2425e2c44ac8d1f9ade63b1e, type: 3}
+  Actions:
+  - eat
   hunger: 100
   health: 15

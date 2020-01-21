@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     private Animator animator;
     private HealthSystem healthSystem;
     private HungerSystem hungerSystem;
+    private Backpack backpack;
 
     void Awake()
     {
@@ -26,6 +27,7 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
         healthSystem = GetComponent<HealthSystem>();
         hungerSystem = GetComponent<HungerSystem>();
+        backpack = GetComponent<Backpack>();
     }
 
     void Update()
@@ -75,7 +77,15 @@ public class Player : MonoBehaviour
             }
         }
 
-        if(hit.gameObject.CompareTag("Food"))
+        if(hit.gameObject.CompareTag("Item"))
+        {
+            if(backpack.AddItem(hit.gameObject))
+            {
+                Destroy(hit.gameObject);
+            }
+        }
+
+        /*if(hit.gameObject.CompareTag("Food"))
         {
             var food = hit.gameObject.GetComponent<Food>();
             if(food)
@@ -84,6 +94,6 @@ public class Player : MonoBehaviour
                 healthSystem.IncreaseHealth(food.health);
                 hungerSystem.DecreaseHungerLevel(food.hunger);
             }
-        }
+        }*/
     }
 }
