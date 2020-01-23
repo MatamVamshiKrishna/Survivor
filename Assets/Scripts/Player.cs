@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     private HealthSystem healthSystem;
     private HungerSystem hungerSystem;
     private Backpack backpack;
+    public  UIManager UIManager;
 
     void Awake()
     {
@@ -64,6 +65,11 @@ public class Player : MonoBehaviour
         animator.SetFloat("speed", magnitude);
         animator.SetBool("canSprint", canSprint);
         animator.SetBool("canJump", canJump);
+
+        if(Input.GetKeyDown(KeyCode.B))
+        {
+            UIManager.ToggleInventory();
+        }
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)

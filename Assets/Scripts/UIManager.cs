@@ -11,6 +11,9 @@ public class UIManager : MonoBehaviour
     // Systems
     public HealthSystem HealthSystem;
     public HungerSystem HungerSystem;
+
+    // UI Components
+    public InventoryUI InventoryUI;
     
     // Start is called before the first frame update
     void Start()
@@ -23,5 +26,10 @@ public class UIManager : MonoBehaviour
     {
         Health.text = "Health : "+HealthSystem.GetHealth().ToString();
         HungerLevel.text = "Hunger Level : " + HungerSystem.GetHungerLevel().ToString();
+    }
+
+    public void ToggleInventory()
+    {
+        InventoryUI.Toggle();
     }
 }
