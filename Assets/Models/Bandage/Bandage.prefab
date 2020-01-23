@@ -105,9 +105,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e629d7d3d5d26634d865f0f969a5c214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Bandage
-  Description: Its a bandage
-  Weight: 0.05
-  Sprite: {fileID: 21300000, guid: f8383bbb34ee4f745a950c8ea0986746, type: 3}
-  Actions:
-  - apply
+  Data: {fileID: 11400000, guid: 5f071d38060c0e8458a74fc43c51de71, type: 2}

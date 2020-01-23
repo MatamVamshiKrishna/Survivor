@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7654508110188121248}
   - component: {fileID: 5682567072867814138}
   - component: {fileID: 1632791731564421140}
-  - component: {fileID: 3400599651638062031}
+  - component: {fileID: -5941388698478527600}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Item
@@ -93,7 +93,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3400599651638062031
+--- !u!114 &-5941388698478527600
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,9 +105,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e629d7d3d5d26634d865f0f969a5c214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Gun
-  Description: Its a gun
-  Weight: 1.5
-  Sprite: {fileID: 21300000, guid: 834673217bef2f54ba6fcd075c978d5b, type: 3}
-  Actions:
-  - equip
+  Data: {fileID: 11400000, guid: 8db03f11d0662d648929e5a956b671c5, type: 2}

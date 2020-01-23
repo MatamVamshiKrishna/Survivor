@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4622019972533837990}
   - component: {fileID: 1523322318261722256}
   - component: {fileID: 4584181385270929707}
-  - component: {fileID: -2949448122743416195}
+  - component: {fileID: -5549442608621899804}
   m_Layer: 0
   m_Name: Meat
   m_TagString: Item
@@ -93,7 +93,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-2949448122743416195
+--- !u!114 &-5549442608621899804
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,14 +102,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8850213580903907001}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6380c48c50b752f4f980c143fde12c7a, type: 3}
+  m_Script: {fileID: 11500000, guid: e629d7d3d5d26634d865f0f969a5c214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Meat
-  Description: Its a meat
-  Weight: 0.75
-  Sprite: {fileID: 21300000, guid: 9a78fb6d2425e2c44ac8d1f9ade63b1e, type: 3}
-  Actions:
-  - eat
-  hunger: 100
-  health: 15
+  Data: {fileID: 11400000, guid: 64529f6ab55a14140aaebef0779d14e1, type: 2}
